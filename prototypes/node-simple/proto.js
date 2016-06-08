@@ -18,7 +18,6 @@ var balance = null;
 var trigger_food_dispenser = function()
 {
   console.log("Address balance changed, new one is:", balance, "BTC");
-  console.log("Servo motor moving");
   console.log("TODO: DO IT");
 }
 
@@ -39,14 +38,15 @@ var check_balance = function()
         {
             var satoshi = parseInt(body);
             var btc = satoshi * Math.pow(10, -8);
+            var do_it = false;
             console.log("Balance is " + btc);
             // this is the simplest approach:
             // just check if the balance if different
             // you could check if the price is increased by X amount
             // or better if you got a transaction exactly of x btc
-            if (balance && balance != btc)
+            if (balance != null && balance != btc)
             {
-               trigger_food_dispenser();
+                do_it = true;
             }
 
             // TODO: different rules / behaviour when receiving a transaction
@@ -55,6 +55,11 @@ var check_balance = function()
             // action (like a "view" that just a macro movement on the servo
             // [rotate 10, delay 1, rotate -10] - #code #programming) 
             balance = btc;
+
+            if (do_it)
+            {
+                trigger_food_dispenser();
+            }
         }
         _.delay(check_balance, loop_time);
         // this is like setTimeout(check_balance, loop_Time)
