@@ -1,0 +1,22 @@
+{
+    "name": "bitcat-feeder",
+    "version": "0.0.1",
+    "description" : "Pay bitcoin to trigger a food dispenser",
+    "repository" :
+    {
+        "type" : "git",
+        "url" : "https://github.com/sourcelibre/bitcat-feeder.git"
+    },
+    "license" : "GPL-3.0",
+    "url" : "https://github.com/sourcelibre/bitcat-feeder/issues",
+    "email" : "alexandre@quessy.net",
+    "bin":
+    {
+        "bitcat-feeder": "./bitcat-feeder.js"
+    },
+    "dependencies":
+    {
+        "request" : "latest",
+        "underscore" : "latest"
+    }
+}

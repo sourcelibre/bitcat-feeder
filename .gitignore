@@ -1,3 +1,8 @@
 *~
 *.swp
 .DS_Store
+.lock-wscript
+.wafpickle-N
+._*
+npm-debug.log
+node_modules/
